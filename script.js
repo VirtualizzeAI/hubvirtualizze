@@ -42,6 +42,22 @@ function logout() {
 // Disparos
 function disparar() {
   const palavra = document.getElementById("keyword").value;
+
+  fetch(CONFIG.N8N_WEBHOOK_DISPARO, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({campanha: palavra})
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("resultado").innerText =
+      "Fluxo disparado! Resposta: " + JSON.stringify(data);
+  })
+  .catch(err => {
+    document.getElementById("resultado").innerText = "Erro: " + err;
+  });
+
+
   document.getElementById("resultado").innerText =
     "Disparo realizado com a palavra-chave: " + palavra;
 }
