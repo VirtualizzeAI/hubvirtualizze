@@ -2,16 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Página Inicial</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="protegerPagina()">
   <div class="container">
-    <h2>Login</h2>
-    <input type="text" id="email" placeholder="Email">
-    <input type="password" id="senha" placeholder="Senha">
-    <button onclick="login()">Entrar</button>
-    <p id="msg"></p>
+    <h2>Bem-vindo, <span id="nomeUsuario"></span></h2>
+    <nav>
+      <a href="relatorios.html">📊 Relatórios</a>
+      <a href="prompts.html">💡 Prompts</a>
+      <a href="disparos.html">🚀 Disparos</a>
+      <a href="perfil.html">⚙️ Perfil</a>
+      <a href="#" onclick="logout()">Sair</a>
+    </nav>
   </div>
   <script src="script.js"></script>
 </body>
